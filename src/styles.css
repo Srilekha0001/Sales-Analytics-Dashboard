@@ -1,0 +1,275 @@
+/* =========================
+   🌗 THEME VARIABLES
+========================= */
+:root {
+  --text: #e2e8f0;
+  --bg: #0f172a;
+  --panel: rgba(30, 41, 59, 0.6);
+  --accent: #38bdf8;
+  --accent-2: #818cf8;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --text: #0f172a;
+  --bg: #f8fafc;
+  --panel: rgba(255, 255, 255, 0.7);
+  --accent: #2563eb;
+  --accent-2: #60a5fa;
+  --card-shadow: rgba(0, 0, 0, 0.15);
+  --border-color: rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   🌍 GLOBAL STYLES
+========================= */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Poppins", sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* =========================
+   ✨ GRADIENT HEADING TEXT
+========================= */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 300% 300%;
+  animation: shimmer 6s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip: text; /* Safari & Chrome */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Safari & Chrome */
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================
+   🧭 HEADER SECTION
+========================= */
+.glass-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 25px var(--card-shadow);
+  border-radius: 20px;
+  margin: 1rem auto;
+  width: 90%;
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
+
+.theme-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--accent-2);
+}
+
+.theme-btn:hover {
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 0 25px var(--accent);
+}
+
+/* =========================
+   📤 FILE UPLOAD SECTION
+========================= */
+.upload-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+input[type="file"] {
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--panel);
+  color: var(--text);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: var(--accent-2);
+  transform: scale(1.03);
+}
+
+button {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px var(--accent-2);
+}
+
+/* =========================
+   🧊 KPI CARDS GRID
+========================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  width: 90%;
+}
+
+.glass-card {
+  background: var(--panel);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  backdrop-filter: blur(16px);
+  padding: 1.4rem 1.8rem;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.03) rotateX(2deg);
+  box-shadow: 0 20px 40px var(--card-shadow);
+}
+
+.glass-card h3 {
+  color: var(--accent);
+  font-weight: 500;
+  margin: 0 0 0.3rem 0;
+}
+
+.glass-card p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* =========================
+   💬 INSIGHT BOX
+========================= */
+.glass-panel {
+  background: var(--panel);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 6px 25px var(--card-shadow);
+  width: 85%;
+  margin: 2rem auto;
+  padding: 1.8rem 2rem;
+  transition: 0.3s;
+}
+
+.insight-box h3 {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.insight-box p {
+  line-height: 1.6;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+/* =========================
+   📊 CHARTS SECTION
+========================= */
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.chart-card {
+  width: 90%;
+  background: var(--panel);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 25px var(--card-shadow);
+  backdrop-filter: blur(15px);
+  padding: 1.5rem 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--card-shadow);
+}
+
+.chart-card h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   🧩 3D CANVAS STYLING
+========================= */
+canvas {
+  border-radius: 20px;
+  background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+/* =========================
+   📱 RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  .glass-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .upload-section {
+    flex-direction: column;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    width: 95%;
+  }
+}
